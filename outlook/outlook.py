@@ -99,7 +99,7 @@ def send_push(title):
     print(res.text)
 
 if __name__ == '__main__':
-    conn = connect('xby503094716@outlook.com','8h8w2DYJ86q3') # 建立连接
+    conn = connect('user','password') # 建立连接
     # 初始化邮箱
     count = 0;
     mail_list = []
