@@ -47,7 +47,7 @@ def get_encode(conn,index):
 def get_mail_title(conn,index):
     """获取邮件标题
 
-    :param data: conn.search()获得的对象
+    :param conn: imap对象
     :param index: conn.search().split()[i]，即序列表对应的序号(邮件编号)
     :return: 返回邮件标题str
     """
@@ -72,8 +72,7 @@ def mail_count(sequence):
 def main(conn):
     """主函数，主要进行邮箱状态的获取和标题的存储
         返回当前邮箱内邮件数以及标题列表
-    :param user: 用户名
-    :param password: 密码
+    :param conn: imap对象
     :return: 返回标题列表与当前邮箱邮件数
     """
     type, data = conn.search(None, 'ALL')# 提取所有邮件
