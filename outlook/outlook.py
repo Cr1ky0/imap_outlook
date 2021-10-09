@@ -113,10 +113,15 @@ if __name__ == '__main__':
         # 当前状态与之前不同则将当前状态修改为新状态，并向服务器发送最新的邮件标题（表示推送最新邮件）
         # 这里需要解决一个问题，如果有多封邮件到达怎么推送
         if new_count != count:
-            # 注意，如果在运行时删除邮件会出错
             try:
-            # 推送邮件
+                # 推送邮件
                 num = new_count - count
+                # 如果num<0表示删除邮件则不管
+                if num < 0:
+                    count = new_count
+                    mail_list = new_mail_list
+                    continue
+                # 否则num>0发送最新的几个邮件
                 for i in range(num):
                     send_push(new_mail_list[i])
                 # 推送完成，修改状态为当前状态
