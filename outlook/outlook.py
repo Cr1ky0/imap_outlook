@@ -94,7 +94,9 @@ def main(conn):
 
 def send_push(title):
     # 向中继服务器发送推送
-    url = "https://tdtt.top/send?alias=creekyu&title=" + title + "&content=Outlook来信"
+    # 利用Android端的“消息接收”app，是基于MiPush的(酷安：唐大土土)
+    # 发送post请求即可对指定别名的设备进行消息推送
+    url = "https://tdtt.top/send?alias=别名&title=" + title + "&content=Outlook来信"
     res = requests.post(url=url)
     print(res.text)
 
